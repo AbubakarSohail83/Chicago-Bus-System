@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_132110) do
     t.integer "stop_id"
     t.string "on_street", default: ""
     t.string "cross_street", default: ""
-    t.text "routes"
+    t.string "routes", default: [], array: true
     t.float "boardings"
     t.float "alightings"
     t.string "month_beginning", default: ""
@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_132110) do
     t.jsonb "location", default: {}
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["routes"], name: "index_bus_stops_on_routes", using: :gin
   end
 
 end

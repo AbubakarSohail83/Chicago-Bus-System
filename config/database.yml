@@ -20,10 +20,12 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: postgres
   password: postgres
+  port: 5432
 
 development:
   <<: *default
   database: chicago_bus_system_development
+  # host: ridership-db
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -82,5 +84,4 @@ test:
 production:
   <<: *default
   database: chicago_bus_system_production
-  username: chicago_bus_system
-  password: <%= ENV["CHICAGO_BUS_SYSTEM_DATABASE_PASSWORD"] %>
+  

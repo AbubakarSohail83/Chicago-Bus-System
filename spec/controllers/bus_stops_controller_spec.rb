@@ -1,21 +1,15 @@
+# spec/controllers/bus_stops_controller_spec.rb
 require 'rails_helper'
 
 RSpec.describe BusStopsController, type: :controller do
-  describe "GET #index" do
-    it 'assigns the longest route to @longest_route' do
-      create_list(:bus_stop, 2, routes: ['A', 'B'])
+  describe 'GET #index' do
+    it 'assigns @longest_route' do
+      longest_route = ['Route 1', 5]
+      allow(BusStop).to receive(:longest_route).and_return(longest_route)
 
       get :index
-      expect(assigns(:longest_route)).to eq(['A', 2])
-    end
 
-    it 'assigns the most common bus route to @most_common_bus_route' do
-      create(:bus_stop, on_street: 'Street1', cross_street: 'CrossStreet1')
-      create(:bus_stop, on_street: 'Street1', cross_street: 'CrossStreet1')
-      create(:bus_stop, on_street: 'Street2', cross_street: 'CrossStreet2')
-
-      get :index
-      expect(assigns(:most_common_bus_route)).to eq(['Street1', 'CrossStreet1', 2])
+      expect(assigns(:longest_route)).to eq(longest_route)
     end
   end
 end

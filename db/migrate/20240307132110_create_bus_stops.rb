@@ -4,7 +4,7 @@ class CreateBusStops < ActiveRecord::Migration[7.1]
       t.integer :stop_id
       t.string :on_street, default: ''
       t.string :cross_street, default: ''
-      t.text :routes
+      t.string :routes, array: true, default: []
       t.float :boardings
       t.float :alightings
       t.string :month_beginning, default: ''
@@ -12,5 +12,6 @@ class CreateBusStops < ActiveRecord::Migration[7.1]
       t.jsonb :location, default: {}
       t.timestamps
     end
+    add_index :bus_stops, :routes, using: :gin
   end
 end
