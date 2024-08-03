@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  on_street: MyString
+  cross_street: MyString
+  routes: MyText
+  boardings: 1.5
+  alightings: 1.5
+  month_beginning: 2024-03-07
+  daytype: MyString
+  location: 
+
+two:
+  on_street: MyString
+  cross_street: MyString
+  routes: MyText
+  boardings: 1.5
+  alightings: 1.5
+  month_beginning: 2024-03-07
+  daytype: MyString
+  location: 
